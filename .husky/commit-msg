@@ -1,0 +1,89 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Commit message validation
+# Enforces Conventional Commits format
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Colors for output
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Skip merge commits and revert commits
+if echo "$COMMIT_MSG" | grep -qE "^Merge|^Revert"; then
+  exit 0
+fi
+
+# Conventional Commits pattern
+# Format: type(scope): description
+# Examples:
+#   feat: add user authentication
+#   fix(api): handle null response
+#   docs: update README
+PATTERN="^(feat|fix|docs|style|refactor|perf|test|chore|ci|build)(\(.+\))?: .{10,}$"
+
+if ! echo "$COMMIT_MSG" | grep -qE "$PATTERN"; then
+  echo "${RED}❌ Invalid commit message format${NC}"
+  echo ""
+  echo "${YELLOW}Commit message must follow Conventional Commits:${NC}"
+  echo ""
+  echo "  ${YELLOW}type(scope): description${NC}"
+  echo ""
+  echo "${YELLOW}Valid types:${NC}"
+  echo "  feat     - New feature"
+  echo "  fix      - Bug fix"
+  echo "  docs     - Documentation only"
+  echo "  style    - Formatting (no code change)"
+  echo "  refactor - Code refactoring"
+  echo "  perf     - Performance improvement"
+  echo "  test     - Adding tests"
+  echo "  chore    - Tooling, dependencies"
+  echo "  ci       - CI/CD changes"
+  echo "  build    - Build system changes"
+  echo ""
+  echo "${YELLOW}Examples:${NC}"
+  echo "  feat: add email validation"
+  echo "  fix(api): handle null response"
+  echo "  docs: update README with examples"
+  echo "  refactor(core): extract validation logic"
+  echo ""
+  echo "${YELLOW}Requirements:${NC}"
+  echo "  - Description must be at least 10 characters"
+  echo "  - Use imperative mood (add, not added)"
+  echo "  - Lowercase description"
+  echo ""
+  echo "${YELLOW}Your commit message:${NC}"
+  echo "  $COMMIT_MSG"
+  echo ""
+  echo "See: https://www.conventionalcommits.org/"
+  exit 1
+fi
+
+# Check description length (after type and scope)
+DESC=$(echo "$COMMIT_MSG" | sed -E 's/^[a-z]+(\([a-z-]+\))?: //')
+DESC_LENGTH=${#DESC}
+
+if [ "$DESC_LENGTH" -lt 10 ]; then
+  echo "${RED}❌ Commit description too short${NC}"
+  echo ""
+  echo "${YELLOW}Description must be at least 10 characters.${NC}"
+  echo ""
+  echo "Your description: \"$DESC\" (${DESC_LENGTH} chars)"
+  exit 1
+fi
+
+if [ "$DESC_LENGTH" -gt 72 ]; then
+  echo "${YELLOW}⚠️  Warning: Commit description is long (${DESC_LENGTH} chars)${NC}"
+  echo ""
+  echo "Consider keeping the first line under 72 characters."
+  echo "Use the commit body for additional details."
+  echo ""
+  echo "Proceeding anyway..."
+fi
+
+# Success
+echo "✅ Commit message format valid"
+exit 0

@@ -1,0 +1,19 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+
+# Build outputs
+dist
+.next
+.turbo
+build
+coverage
+
+# Generated files
+.tsbuildinfo
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
