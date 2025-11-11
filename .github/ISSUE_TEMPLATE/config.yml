@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/kayossouza/flowform/discussions
+    about: Ask questions, share ideas, or discuss Flowform
+  - name: 📚 Documentation
+    url: https://github.com/kayossouza/flowform/blob/main/docs
+    about: Read our comprehensive documentation

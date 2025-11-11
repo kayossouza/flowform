@@ -1,0 +1,41 @@
+{
+  "name": "@flowform/core",
+  "version": "0.1.0",
+  "description": "Pure function orchestrator for conversational forms - zero dependencies",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "test": "NODE_OPTIONS='' vitest run",
+    "test:watch": "NODE_OPTIONS='' vitest",
+    "test:coverage": "NODE_OPTIONS='' vitest run --coverage",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src tests --ext .ts",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "keywords": [
+    "conversational-forms",
+    "llm",
+    "form-orchestrator",
+    "pure-functions",
+    "typescript"
+  ],
+  "author": "Flowform Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@vitest/coverage-v8": "^1.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {}
+}

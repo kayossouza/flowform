@@ -1,0 +1,60 @@
+{
+  "name": "flowform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-native conversational forms platform",
+  "license": "MIT",
+  "author": "Flowform Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/flowform.git"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "turbo run build --filter=./packages/* && turbo run dev --parallel",
+    "dev:web": "turbo run dev --filter=@repo/web",
+    "build": "turbo run build",
+    "type-check": "turbo run type-check",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix",
+    "test": "NODE_OPTIONS='' turbo run test",
+    "test:watch": "NODE_OPTIONS='' turbo run test:watch",
+    "test:coverage": "NODE_OPTIONS='' turbo run test -- --coverage",
+    "check": "pnpm run type-check && pnpm run lint && pnpm run test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "clean": "turbo run clean && rm -rf node_modules .turbo",
+    "db:up": "docker-compose up -d postgres",
+    "db:down": "docker-compose down",
+    "db:migrate": "pnpm --filter @repo/web prisma migrate dev",
+    "db:seed": "pnpm --filter @repo/web prisma db seed",
+    "db:studio": "pnpm --filter @repo/web prisma studio",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "turbo": "^2.3.0",
+    "typescript": "^5.6.3"
+  },
+  "lint-staged": {
+    "packages/*/src/**/*.{ts,tsx}": [
+      "eslint --fix --cache",
+      "prettier --write",
+      "vitest related --run --coverage=false"
+    ],
+    "apps/*/src/**/*.{ts,tsx}": [
+      "eslint --fix --cache",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}
