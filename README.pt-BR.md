@@ -8,7 +8,47 @@ Plataforma open-source para formulários conversacionais com LLMs.
 
 [English](./README.md) | [Português](./README.pt-BR.md)
 
-**[Início Rápido](#início-rápido) · [Documentação](./docs/pt-br) · [Arquitetura](./docs/pt-br/ARCHITECTURE.md) · [Contribuindo](./CONTRIBUTING.pt-BR.md)**
+**[Início Rápido](#início-rápido) · [Documentação](#índice-de-documentação) · [Arquitetura](./docs/pt-br/ARCHITECTURE.md) · [Contribuindo](./CONTRIBUTING.pt-BR.md)**
+
+---
+
+## Índice de Documentação
+
+### Começando
+- [Guia de Início Rápido](#início-rápido) - Configure em 5 minutos
+- [Instalação](#instalação) - Instruções detalhadas de setup
+- [Usando @flowform/core](#usando-flowformcore) - Uso do pacote core
+
+### Arquitetura & Design
+- [Visão Geral da Arquitetura](./docs/pt-br/ARCHITECTURE.md) - Decisões de design e padrões
+- [Especificação do Projeto](./docs/PROJECT_SPEC.md) - Especificação técnica completa
+- [ADRs (Architecture Decision Records)](./docs/adr/) - Decisões de design importantes
+
+### Desenvolvimento
+- [Guia de Desenvolvimento](./docs/pt-br/DEVELOPMENT.md) - Setup, workflow, troubleshooting
+- [Guia de Contribuição](./CONTRIBUTING.pt-BR.md) - Como contribuir
+- [Guia do Spec Kit](./docs/pt-br/SPEC_KIT_GUIDE.md) - Workflow de desenvolvimento colaborativo
+- [Estilo de Código](./CONTRIBUTING.pt-BR.md#estilo-de-código) - Padrões de código
+
+### Gerenciamento do Projeto
+- [Roadmap & Tasks](./docs/TASKS_MVP.md) - 11 fases, 300+ tarefas
+- [Changelog](./CHANGELOG.pt-BR.md) - Histórico de versões e release notes
+- [Release Notes v0.1.0](./docs/releases/v0.1.0.md) - Release do core orchestrator
+
+### Documentação de Pacotes
+- [@flowform/core README](./packages/core/README.md) - Referência da API do core
+
+### Contribuindo com Spec Kit
+
+Flowform usa [Spec Kit](./docs/pt-br/SPEC_KIT_GUIDE.md) para desenvolvimento estruturado e colaborativo:
+
+1. **Escolha uma feature** de [TASKS_MVP.md](./docs/TASKS_MVP.md)
+2. **Escreva uma spec** usando workflow Spec Kit
+3. **Obtenha feedback** da comunidade
+4. **Implemente** com orientação clara
+5. **Shipar!**
+
+Novo no Spec Kit? Leia o [guia completo](./docs/pt-br/SPEC_KIT_GUIDE.md) para entender como construímos features colaborativamente.
 
 ---
 

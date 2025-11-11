@@ -8,7 +8,47 @@ Open-source platform for conversational forms powered by LLMs.
 
 [English](./README.md) | [Português](./README.pt-BR.md)
 
-**[Quick Start](#quick-start) · [Documentation](./docs) · [Architecture](./docs/ARCHITECTURE.md) · [Contributing](./CONTRIBUTING.md)**
+**[Quick Start](#quick-start) · [Documentation](#documentation-index) · [Architecture](./docs/ARCHITECTURE.md) · [Contributing](./CONTRIBUTING.md)**
+
+---
+
+## Documentation Index
+
+### Getting Started
+- [Quick Start Guide](#quick-start) - Get up and running in 5 minutes
+- [Installation](#installation) - Detailed setup instructions
+- [Using @flowform/core](#using-flowformcore) - Core package usage
+
+### Architecture & Design
+- [Architecture Overview](./docs/ARCHITECTURE.md) - Design decisions and patterns
+- [Project Specification](./docs/PROJECT_SPEC.md) - Complete technical specification
+- [ADRs (Architecture Decision Records)](./docs/adr/) - Major design decisions
+
+### Development
+- [Development Guide](./docs/DEVELOPMENT.md) - Setup, workflow, troubleshooting
+- [Contributing Guide](./CONTRIBUTING.md) - How to contribute
+- [Spec Kit Guide](./docs/SPEC_KIT_GUIDE.md) - Collaborative development workflow
+- [Code Style](./CONTRIBUTING.md#code-style) - Coding standards
+
+### Project Management
+- [Roadmap & Tasks](./docs/TASKS_MVP.md) - 11 phases, 300+ tasks
+- [Changelog](./CHANGELOG.md) - Version history and release notes
+- [v0.1.0 Release Notes](./docs/releases/v0.1.0.md) - Core orchestrator release
+
+### Package Documentation
+- [@flowform/core README](./packages/core/README.md) - Core package API reference
+
+### Contributing with Spec Kit
+
+Flowform uses [Spec Kit](./docs/SPEC_KIT_GUIDE.md) for structured, collaborative development:
+
+1. **Choose a feature** from [TASKS_MVP.md](./docs/TASKS_MVP.md)
+2. **Write a spec** using Spec Kit workflow
+3. **Get feedback** from community
+4. **Implement** with clear guidance
+5. **Ship it!**
+
+New to Spec Kit? Read the [complete guide](./docs/SPEC_KIT_GUIDE.md) to understand how we build features collaboratively.
 
 ---
 
